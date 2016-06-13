@@ -4,7 +4,7 @@
   "description": "Allow Error Logging To Sentry",
   "license": ["proprietary"],
   "require": {
-    "magento-hackathon/magento-composer-installer": "*",
+    "magento-hackathon/magento-composer-installer": "*"
   },
   "extra": {
     "map": [
