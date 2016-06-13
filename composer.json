@@ -1,0 +1,16 @@
+{
+  "name": "timeout/sentry-logging",
+  "type": "magento-module",
+  "description": "Allow Error Logging To Sentry",
+  "license": ["proprietary"],
+  "require": {
+    "magento-hackathon/magento-composer-installer": "*",
+  },
+  "extra": {
+    "map": [
+      ["app/code/community/Hackathon/LoggerSentry", "app/code/community/Hackathon/LoggerSentry"],
+      ["app/etc/modules/Hackathon_LoggerSentry.xml","app/etc/modules/Hackathon_LoggerSentry.xml"],
+      ["lib/sentry/raven", "lib/sentry/raven"]
+    ]
+  }
+}
