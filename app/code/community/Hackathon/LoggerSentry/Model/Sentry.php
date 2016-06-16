@@ -41,9 +41,21 @@ class Hackathon_LoggerSentry_Model_Sentry extends Zend_Log_Writer_Abstract
     {
         /* @var $helper Hackathon_Logger_Helper_Data */
         $helper = Mage::helper('firegento_logger');
+        
+        /**
+         * Look for a version file, set reference.
+        **/
+        $release = null;
+        if(file_exists(Mage::getBaseDir() . "/sentry.json")) {
+            $sentry = json_decode(file_get_contents(Mage::getBaseDir() . "/sentry.json")), true);
+            $release = isset($sentry['ref']) ? $sentry['ref'] : null;
+        }
+            
         $options = array(
-            'logger' => $helper->getLoggerConfig('sentry/logger_name')
+            'logger' => $helper->getLoggerConfig('sentry/logger_name'),
+            'release' => $release
         );
+        
         try {
             $this->_sentryClient = new Raven_Client($helper->getLoggerConfig('sentry/apikey'), $options);
         } catch (Exception $e) {
