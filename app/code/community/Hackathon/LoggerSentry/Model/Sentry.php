@@ -47,7 +47,7 @@ class Hackathon_LoggerSentry_Model_Sentry extends Zend_Log_Writer_Abstract
         **/
         $release = null;
         if(file_exists(Mage::getBaseDir() . "/sentry.json")) {
-            $sentry = json_decode(file_get_contents(Mage::getBaseDir() . "/sentry.json")), true);
+            $sentry = json_decode(file_get_contents(Mage::getBaseDir() . "/sentry.json"), true);
             $release = isset($sentry['ref']) ? $sentry['ref'] : null;
         }
             
