@@ -46,8 +46,8 @@ class Hackathon_LoggerSentry_Model_Sentry extends Zend_Log_Writer_Abstract
          * Look for a version file, set reference.
         **/
         $release = null;
-        if(file_exists(Mage::getBaseDir() . "/sentry.json")) {
-            $sentry = json_decode(file_get_contents(Mage::getBaseDir() . "/sentry.json"), true);
+        if(file_exists(Mage::getBaseDir() . "/version.txt")) {
+            $sentry = trim(file_get_contents(Mage::getBaseDir() . "/version.txt"));
             $release = isset($sentry['ref']) ? $sentry['ref'] : null;
         }
             
